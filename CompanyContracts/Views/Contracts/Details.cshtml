@@ -1,0 +1,122 @@
+﻿@model ContractDetailsViewModel
+
+@{
+    ViewData["Title"] = "تفاصيل عقد";
+}
+
+<div class="row">
+    <div class="col-12">
+        <h3 class="text-center mb-5">تفاصيل عقد</h3>
+        <form>
+            <div class="row mb-3">
+                <div class="col-4">
+                    <label class="form-label" asp-for="FunderId"></label>
+                    <select asp-for="FunderId" asp-items="Model.FunderSelectList" class="form-control" disabled>
+                        <option disabled selected>اختار جهة التمويل</option>
+                    </select>
+                </div>
+                <div class="col-4">
+                    <label class="form-label" asp-for="FunderMainNumber"></label>
+                    <input class="form-control" asp-for="FunderMainNumber" disabled>
+                </div>
+                <div class="col-4">
+                    <label class="form-label" asp-for="FunderSubNumber"></label>
+                    <input class="form-control" asp-for="FunderSubNumber" disabled>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="form-label" asp-for="ContractNumber"></label>
+                    <input class="form-control" asp-for="ContractNumber" disabled>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-4">
+                    <label class="form-label" asp-for="BasicFundingAmount"></label>
+                    <input class="form-control" asp-for="BasicFundingAmount" disabled>
+                </div>
+                <div class="col-4">
+                    <label class="form-label" asp-for="InterestRatio"></label>
+                    <input class="form-control" asp-for="InterestRatio" disabled>
+                </div>
+                <div class="col-4">
+                    <label class="form-label" asp-for="TaxRatio"></label>
+                    <input class="form-control" asp-for="TaxRatio" type="number" step="0.01" disabled>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="form-label" asp-for="AdministrativeFees"></label>
+                    <input class="form-control" asp-for="AdministrativeFees" disabled>
+                </div>
+                <div class="col-6">
+                    <label class="form-label" asp-for="FundingNetAmount"></label>
+                    <input class="form-control" asp-for="FundingNetAmount" disabled>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="form-label" asp-for="AdvancePayment"></label>
+                    <input class="form-control" asp-for="AdvancePayment" disabled>
+                </div>
+                <div class="col-6">
+                    <label class="form-label" asp-for="TotalInstallmentsAmount"></label>
+                    <input class="form-control" asp-for="TotalInstallmentsAmount" disabled>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="form-label" asp-for="InstallmentsCount"></label>
+                    <input class="form-control" asp-for="InstallmentsCount" disabled>
+                </div>
+                <div class="col-6">
+                    <label class="form-label" asp-for="InstallmentAmount"></label>
+                    <input class="form-control" asp-for="InstallmentAmount" disabled>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-4">
+                    <label class="form-label" asp-for="FirstInstallmentBeginningDate"></label>
+                    <input type="date" class="form-control" asp-for="FirstInstallmentBeginningDate" disabled>
+                </div>
+                <div class="col-4">
+                    <label class="form-label" asp-for="LastInstallmentDate"></label>
+                    <input type="date" class="form-control" asp-for="LastInstallmentDate" disabled>
+                </div>
+                <div class="col-4">
+                    <label class="form-label" asp-for="Notes"></label>
+                    <input class="form-control" asp-for="Notes" disabled>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="form-label" asp-for="PaidInstallmentsCount"></label>
+                    <input class="form-control" asp-for="PaidInstallmentsCount" disabled>
+                </div>
+                <div class="col-6">
+                    <label class="form-label" asp-for="RemainingInstallmentsCount"></label>
+                    <input class="form-control" asp-for="RemainingInstallmentsCount" disabled>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-4">
+                    <label class="form-label" asp-for="PaidInstallments"></label>
+                    <input class="form-control" asp-for="PaidInstallments" disabled>
+                </div>
+                <div class="col-4">
+                    <label class="form-label" asp-for="NonPaidInstallments"></label>
+                    <input class="form-control" asp-for="NonPaidInstallments" disabled>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial"/>
+    <script>
+        $(document).ready(function () {
+        });
+    </script>
+}

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="contracts" targetNamespace="http://tempuri.org/contracts.xsd" xmlns:mstns="http://tempuri.org/contracts.xsd" xmlns="http://tempuri.org/contracts.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="contracts" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="contracts" msprop:Generator_DataSetName="contracts">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="contracts" msprop:Generator_RowEvHandlerName="contractsRowChangeEventHandler" msprop:Generator_RowDeletedName="contractsRowDeleted" msprop:Generator_RowDeletingName="contractsRowDeleting" msprop:Generator_RowEvArgName="contractsRowChangeEvent" msprop:Generator_TablePropName="_contracts" msprop:Generator_RowChangedName="contractsRowChanged" msprop:Generator_RowChangingName="contractsRowChanging" msprop:Generator_TableClassName="contractsDataTable" msprop:Generator_RowClassName="contractsRow" msprop:Generator_TableVarName="tablecontracts" msprop:Generator_UserTableName="contracts">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="count" msprop:Generator_ColumnPropNameInRow="count" msprop:Generator_ColumnPropNameInTable="countColumn" msprop:Generator_ColumnVarNameInTable="columncount" msprop:Generator_UserColumnName="count" type="xs:string" minOccurs="0" />
+              <xs:element name="ContractNumber" msprop:Generator_ColumnPropNameInRow="ContractNumber" msprop:Generator_ColumnPropNameInTable="ContractNumberColumn" msprop:Generator_ColumnVarNameInTable="columnContractNumber" msprop:Generator_UserColumnName="ContractNumber" type="xs:string" minOccurs="0" />
+              <xs:element name="Notes" msprop:Generator_ColumnPropNameInRow="Notes" msprop:Generator_ColumnPropNameInTable="NotesColumn" msprop:Generator_ColumnVarNameInTable="columnNotes" msprop:Generator_UserColumnName="Notes" type="xs:string" minOccurs="0" />
+              <xs:element name="FunderName" msprop:Generator_ColumnPropNameInRow="FunderName" msprop:Generator_ColumnPropNameInTable="FunderNameColumn" msprop:Generator_ColumnVarNameInTable="columnFunderName" msprop:Generator_UserColumnName="FunderName" type="xs:string" minOccurs="0" />
+              <xs:element name="InstallmentAmount" msprop:Generator_ColumnPropNameInRow="InstallmentAmount" msprop:Generator_ColumnPropNameInTable="InstallmentAmountColumn" msprop:Generator_ColumnVarNameInTable="columnInstallmentAmount" msprop:Generator_UserColumnName="InstallmentAmount" type="xs:string" minOccurs="0" />
+              <xs:element name="InstallmentsCount" msprop:Generator_ColumnPropNameInRow="InstallmentsCount" msprop:Generator_ColumnPropNameInTable="InstallmentsCountColumn" msprop:Generator_ColumnVarNameInTable="columnInstallmentsCount" msprop:Generator_UserColumnName="InstallmentsCount" type="xs:string" minOccurs="0" />
+              <xs:element name="FirstInstallmentBeginningDate" msprop:Generator_ColumnPropNameInRow="FirstInstallmentBeginningDate" msprop:Generator_ColumnPropNameInTable="FirstInstallmentBeginningDateColumn" msprop:Generator_ColumnVarNameInTable="columnFirstInstallmentBeginningDate" msprop:Generator_UserColumnName="FirstInstallmentBeginningDate" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalFundingAmount" msprop:Generator_ColumnPropNameInRow="TotalFundingAmount" msprop:Generator_ColumnPropNameInTable="TotalFundingAmountColumn" msprop:Generator_ColumnVarNameInTable="columnTotalFundingAmount" msprop:Generator_UserColumnName="TotalFundingAmount" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalInstallmentsAmount" msprop:Generator_ColumnPropNameInRow="TotalInstallmentsAmount" msprop:Generator_ColumnPropNameInTable="TotalInstallmentsAmountColumn" msprop:Generator_ColumnVarNameInTable="columnTotalInstallmentsAmount" msprop:Generator_UserColumnName="TotalInstallmentsAmount" type="xs:string" minOccurs="0" />
+              <xs:element name="AdvancePayment" msprop:Generator_ColumnPropNameInRow="AdvancePayment" msprop:Generator_ColumnPropNameInTable="AdvancePaymentColumn" msprop:Generator_ColumnVarNameInTable="columnAdvancePayment" msprop:Generator_UserColumnName="AdvancePayment" type="xs:string" minOccurs="0" />
+              <xs:element name="PaidInstallmentsCount" msprop:Generator_ColumnPropNameInRow="PaidInstallmentsCount" msprop:Generator_ColumnPropNameInTable="PaidInstallmentsCountColumn" msprop:Generator_ColumnVarNameInTable="columnPaidInstallmentsCount" msprop:Generator_UserColumnName="PaidInstallmentsCount" type="xs:string" minOccurs="0" />
+              <xs:element name="PaidInstallments" msprop:Generator_ColumnPropNameInRow="PaidInstallments" msprop:Generator_ColumnPropNameInTable="PaidInstallmentsColumn" msprop:Generator_ColumnVarNameInTable="columnPaidInstallments" msprop:Generator_UserColumnName="PaidInstallments" type="xs:string" minOccurs="0" />
+              <xs:element name="NonPaidInstallments" msprop:Generator_ColumnPropNameInRow="NonPaidInstallments" msprop:Generator_ColumnPropNameInTable="NonPaidInstallmentsColumn" msprop:Generator_ColumnVarNameInTable="columnNonPaidInstallments" msprop:Generator_UserColumnName="NonPaidInstallments" type="xs:string" minOccurs="0" />
+              <xs:element name="RemainingInstallmentsCount" msprop:Generator_ColumnPropNameInRow="RemainingInstallmentsCount" msprop:Generator_ColumnPropNameInTable="RemainingInstallmentsCountColumn" msprop:Generator_ColumnVarNameInTable="columnRemainingInstallmentsCount" msprop:Generator_UserColumnName="RemainingInstallmentsCount" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,163 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>aspnet-CompanyContracts-8bb3da66-db21-4bf3-adcc-ef43847fe41c</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\datasets\contracts.Designer.cs" />
+    <Content Remove="wwwroot\datasets\contracts.xsc" />
+    <Content Remove="wwwroot\datasets\contracts.xsd" />
+    <Content Remove="wwwroot\datasets\contracts.xss" />
+    <Content Remove="wwwroot\datasets\contractsInfo.Designer.cs" />
+    <Content Remove="wwwroot\datasets\contractsInfo.xsc" />
+    <Content Remove="wwwroot\datasets\contractsInfo.xsd" />
+    <Content Remove="wwwroot\datasets\contractsInfo.xss" />
+    <Content Remove="wwwroot\datasets\funders.Designer.cs" />
+    <Content Remove="wwwroot\datasets\funders.xsc" />
+    <Content Remove="wwwroot\datasets\funders.xsd" />
+    <Content Remove="wwwroot\datasets\funders.xss" />
+    <Content Remove="wwwroot\datasets\fundersInfo.Designer.cs" />
+    <Content Remove="wwwroot\datasets\fundersInfo.xsc" />
+    <Content Remove="wwwroot\datasets\fundersInfo.xsd" />
+    <Content Remove="wwwroot\datasets\fundersInfo.xss" />
+    <Content Remove="wwwroot\datasets\installmentPayments.Designer.cs" />
+    <Content Remove="wwwroot\datasets\installmentPayments.xsc" />
+    <Content Remove="wwwroot\datasets\installmentPayments.xsd" />
+    <Content Remove="wwwroot\datasets\installmentPayments.xss" />
+    <Content Remove="wwwroot\datasets\installmentPaymentsInfo.Designer.cs" />
+    <Content Remove="wwwroot\datasets\installmentPaymentsInfo.xsc" />
+    <Content Remove="wwwroot\datasets\installmentPaymentsInfo.xsd" />
+    <Content Remove="wwwroot\datasets\installmentPaymentsInfo.xss" />
+    <Content Remove="wwwroot\reports\allContracts.rdlc" />
+    <Content Remove="wwwroot\reports\contracts.rdlc" />
+    <Content Remove="wwwroot\reports\funders.rdlc" />
+    <Content Remove="wwwroot\reports\installmentPayments.rdlc" />
+    <Content Remove="Areas\Identity\Pages\Account\Logout.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="wwwroot\datasets\contracts.Designer.cs">
+      <DependentUpon>contracts.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="wwwroot\datasets\contractsInfo.Designer.cs">
+      <DependentUpon>contractsInfo.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="wwwroot\datasets\funders.Designer.cs">
+      <DependentUpon>funders.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="wwwroot\datasets\fundersInfo.Designer.cs">
+      <DependentUpon>fundersInfo.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="wwwroot\datasets\installmentPayments.Designer.cs">
+      <DependentUpon>installmentPayments.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="wwwroot\datasets\installmentPaymentsInfo.Designer.cs">
+      <DependentUpon>installmentPaymentsInfo.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AspNetCore.Reporting" Version="2.1.0" />
+    <PackageReference Include="ClosedXML" Version="0.102.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.14" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.22" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.22" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.21" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.22">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+    <PackageReference Include="Serilog.AspNetCore" Version="7.0.0" />
+    <PackageReference Include="System.Security.Permissions" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Authorization\" />
+    <Folder Include="wwwroot\uploads\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\datasets\contracts.xsc" />
+    <None Include="wwwroot\datasets\contracts.xsd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+      <LastGenOutput>contracts.Designer.cs</LastGenOutput>
+      <Generator>MSDataSetGenerator</Generator>
+    </None>
+    <None Include="wwwroot\datasets\contracts.xss" />
+    <None Include="wwwroot\datasets\contractsInfo.xsc" />
+    <None Include="wwwroot\datasets\contractsInfo.xsd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+      <LastGenOutput>contractsInfo.Designer.cs</LastGenOutput>
+      <Generator>MSDataSetGenerator</Generator>
+    </None>
+    <None Include="wwwroot\datasets\contractsInfo.xss" />
+    <None Include="wwwroot\datasets\funders.xsc" />
+    <None Include="wwwroot\datasets\funders.xsd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+      <LastGenOutput>funders.Designer.cs</LastGenOutput>
+      <Generator>MSDataSetGenerator</Generator>
+    </None>
+    <None Include="wwwroot\datasets\funders.xss" />
+    <None Include="wwwroot\datasets\fundersInfo.xsc" />
+    <None Include="wwwroot\datasets\fundersInfo.xsd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+      <LastGenOutput>fundersInfo.Designer.cs</LastGenOutput>
+      <Generator>MSDataSetGenerator</Generator>
+    </None>
+    <None Include="wwwroot\datasets\fundersInfo.xss" />
+    <None Include="wwwroot\datasets\installmentPayments.xsc" />
+    <None Include="wwwroot\datasets\installmentPayments.xsd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+      <LastGenOutput>installmentPayments.Designer.cs</LastGenOutput>
+      <Generator>MSDataSetGenerator</Generator>
+    </None>
+    <None Include="wwwroot\datasets\installmentPayments.xss" />
+    <None Include="wwwroot\datasets\installmentPaymentsInfo.xsc" />
+    <None Include="wwwroot\datasets\installmentPaymentsInfo.xsd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+      <LastGenOutput>installmentPaymentsInfo.Designer.cs</LastGenOutput>
+      <Generator>MSDataSetGenerator</Generator>
+    </None>
+    <None Include="wwwroot\datasets\installmentPaymentsInfo.xss" />
+    <None Include="wwwroot\reports\allContracts.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="wwwroot\reports\contracts.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="wwwroot\reports\funders.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="wwwroot\reports\installmentPayments.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

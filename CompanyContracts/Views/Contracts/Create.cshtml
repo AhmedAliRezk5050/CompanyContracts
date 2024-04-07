@@ -1,0 +1,284 @@
+﻿@model ContractViewModel
+
+@{
+    ViewData["Title"] = "اضافة عقد";
+}
+
+<div class="row">
+    <div class="col-12">
+        <h3 class="text-center mb-5">اضافة عقد</h3>
+
+        <form asp-action="Create" id="myForm">
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="form-label" asp-for="ContractNumber"></label>
+                    <input class="form-control" asp-for="ContractNumber">
+                    <span class="text-danger" asp-validation-for="ContractNumber"></span>
+                </div>
+                <div class="col-6">
+                    <label class="form-label" asp-for="FunderId"></label>
+                    <select asp-for="FunderId" asp-items="Model.FunderSelectList" class="form-control">
+                        <option disabled selected>اختار جهة التمويل</option>
+                    </select>
+                    <span class="text-danger" asp-validation-for="FunderId"></span>
+                </div>
+
+            </div>
+            <div class="row mb-3">
+                <div class="col-3">
+                    <label class="form-label" asp-for="BasicFundingAmount"></label>
+                    <input class="form-control" asp-for="BasicFundingAmount">
+                    <span class="text-danger" asp-validation-for="BasicFundingAmount"></span>
+                </div>
+                <div class="col-3">
+                    <label class="form-label" asp-for="TaxRatio"></label>
+                    <input class="form-control" asp-for="TaxRatio">
+                    <span class="text-danger" asp-validation-for="TaxRatio"></span>
+                </div>
+                <div class="col-3">
+                    <label class="form-label" asp-for="TaxAmount"></label>
+                    <input class="form-control" asp-for="TaxAmount" disabled>
+                </div>
+                <div class="col-3">
+                    <label class="form-label" asp-for="AfterTaxFundingAmount"></label>
+                    <input class="form-control" asp-for="AfterTaxFundingAmount" disabled>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-3">
+                    <label class="form-label" asp-for="InterestRatio"></label>
+                    <input class="form-control" asp-for="InterestRatio">
+                    <span class="text-danger" asp-validation-for="InterestRatio"></span>
+                </div>
+                <div class="col-3">
+                    <label class="form-label" asp-for="InterestRatioAmount"></label>
+                    <input class="form-control" asp-for="InterestRatioAmount" disabled>
+                </div>
+                <div class="col-3">
+                    <label class="form-label" asp-for="AfterInterestRatioFundingAmount"></label>
+                    <input class="form-control" asp-for="AfterInterestRatioFundingAmount" disabled>
+                </div>
+                <div class="col-3">
+                    <label class="form-label" asp-for="AdministrativeFees"></label>
+                    <input class="form-control" asp-for="AdministrativeFees">
+                    <span class="text-danger" asp-validation-for="AdministrativeFees"></span>
+                </div>
+
+            </div>
+            <div class="row mb-3">
+                <div class="col-4">
+                    <label class="form-label" asp-for="TotalFundingAmount"></label>
+                    <input class="form-control" asp-for="TotalFundingAmount" disabled>
+                </div>
+                <div class="col-4">
+                    <label class="form-label" asp-for="AdvancePayment"></label>
+                    <input class="form-control" asp-for="AdvancePayment">
+                    <span class="text-danger" asp-validation-for="AdvancePayment"></span>
+                </div>
+                <div class="col-4">
+                    <label class="form-label" asp-for="TotalInstallmentsAmount"></label>
+                    <input class="form-control" asp-for="TotalInstallmentsAmount" disabled>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="form-label" asp-for="InstallmentsCount"></label>
+                    <input class="form-control" asp-for="InstallmentsCount">
+                    <span class="text-danger" asp-validation-for="InstallmentsCount"></span>
+                </div>
+                <div class="col-6">
+                    <label class="form-label" asp-for="InstallmentAmount"></label>
+                    <input class="form-control" asp-for="InstallmentAmount" disabled>
+                </div>
+
+            </div>
+            <div class="row mb-3">
+                <div class="col-4">
+                    <label class="form-label" asp-for="FirstInstallmentBeginningDate"></label>
+                    <input type="date" class="form-control" asp-for="FirstInstallmentBeginningDate">
+                    <span class="text-danger" asp-validation-for="FirstInstallmentBeginningDate"></span>
+                </div>
+                <div class="col-4">
+                    <label class="form-label" asp-for="LastInstallmentDate"></label>
+                    <input type="date" class="form-control" asp-for="LastInstallmentDate" disabled>
+                    <span class="text-danger" asp-validation-for="LastInstallmentDate"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="form-label" asp-for="Notes"></label>
+                    <textarea class="form-control" asp-for="Notes"></textarea>
+                    <span class="text-danger" asp-validation-for="Notes"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">اضافة</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial"/>
+    <script>
+    $(document).ready(function () {
+        // ------------------------------------------------------------------------------------------------------------
+        const contractsCreateTempMsg = '@TempData["contracts-create-temp-msg"]';
+        if (contractsCreateTempMsg) {
+         switch (contractsCreateTempMsg) {
+            case 'create-error':
+               Swal.fire({
+                     text: 'فشلت الاضافة',
+                      icon: 'error',
+                         })
+            break; 
+            case 'unknown-error':
+               Swal.fire({
+                     text: 'خطأ غير معلوم',
+                      icon: 'error',
+                         })
+            break;                          
+                    }
+                      } 
+        
+        
+        // ------------------------------------------------------------------------------------------------------------
+         function addMonthsToDate(date, monthsToAdd) {
+           const newDate = new Date(date);
+           
+           // Get the current month and year
+           const currentMonth = newDate.getMonth();
+           const currentYear = newDate.getFullYear();
+           
+           // Calculate the new month and year after adding months
+           let newMonth = currentMonth + monthsToAdd;
+           let newYear = currentYear;
+           
+           // Handle overflow or underflow of months
+           while (newMonth >= 12) {
+             newMonth -= 12;
+             newYear++;
+           }
+           while (newMonth < 0) {
+             newMonth += 12;
+             newYear--;
+           }
+           
+           // Set the new month and year
+           newDate.setMonth(newMonth);
+           newDate.setFullYear(newYear);
+           
+           return newDate;
+         }
+        
+        
+         
+         $('#FirstInstallmentBeginningDate, #InstallmentsCount').on('change', function () {
+           // Get the values of FirstInstallmentBeginningDate and InstallmentsCount
+           debugger
+           const firstInstallmentDate = new Date($('#FirstInstallmentBeginningDate').val());
+           if (!(!isNaN(firstInstallmentDate) && firstInstallmentDate instanceof Date)) {
+            return;
+           }
+           const installmentsCount = parseInt($('#InstallmentsCount').val());
+         
+           // Calculate the new LastInstallmentDate
+           const newLastInstallmentDate = addMonthsToDate(firstInstallmentDate, installmentsCount - 1);
+         debugger
+           if (firstInstallmentDate) {
+               // Update the value of LastInstallmentDate input field
+               $('#LastInstallmentDate').val(newLastInstallmentDate.toISOString().split('T')[0]);
+           }
+         });
+         
+          $('#myForm').on('submit', function () {
+             // Enable the disabled input field before submitting the form
+             $('#TaxAmount').prop('disabled', false);
+             $('#AfterTaxFundingAmount').prop('disabled', false);
+             $('#InterestRatioAmount').prop('disabled', false);
+             $('#AfterInterestRatioFundingAmount').prop('disabled', false);
+             $('#TotalFundingAmount').prop('disabled', false);
+             $('#TotalInstallmentsAmount').prop('disabled', false);
+             $('#InstallmentAmount').prop('disabled', false);
+             $('#LastInstallmentDate').prop('disabled', false);
+         });
+        // ------------------------------------------------------------------------------------------------------------
+        
+        // ------------------------------------------------------------------------------------------------------------
+        const basicFundingAmountInput = $('#BasicFundingAmount');
+        const interestRatioInput = $('#InterestRatio');
+        const advancePaymentInput = $('#AdvancePayment');
+        const afterTaxFundingAmountInput = $('#AfterTaxFundingAmount');
+        const afterInterestRatioFundingAmountInput = $('#AfterInterestRatioFundingAmount');
+        const administrativeFeesInput = $('#AdministrativeFees');
+        const totalFundingAmountInput = $('#TotalFundingAmount');
+        const totalInstallmentsAmountInput = $('#TotalInstallmentsAmount');
+        const taxAmountInput = $('#TaxAmount');
+        const interestRatioAmountInput = $('#InterestRatioAmount');
+        const installmentAmountInput = $('#InstallmentAmount');
+         const installmentsCountInput = $('#InstallmentsCount');
+         const taxRatioInput = $('#TaxRatio');
+        // ------------------------------------------------------------------------------------------------------------
+        
+        $('#BasicFundingAmount, #InterestRatio, #AdvancePayment, #AdministrativeFees, #InstallmentsCount, #TaxRatio').on('change', function () {
+            debugger
+            const basicFundingAmountInputValue = +basicFundingAmountInput.val();
+            const interestRatioInputValue = +interestRatioInput.val();
+            const advancePaymentInputValue = +advancePaymentInput.val();
+            const administrativeFeesInputValue = +administrativeFeesInput.val();
+            const installmentsCountInputValue = +installmentsCountInput.val();
+            const taxRatioInputValue = +taxRatioInput.val();
+            
+            if (isNaN(basicFundingAmountInputValue) || 
+                isNaN(interestRatioInputValue) ||
+                isNaN(advancePaymentInputValue) ||
+                isNaN(administrativeFeesInputValue) ||
+                isNaN(installmentsCountInputValue) ||
+                isNaN(taxRatioInputValue)
+                
+                ) {
+                return;
+            }
+            
+            const taxAmount = +(basicFundingAmountInputValue * taxRatioInputValue).toFixed(2);
+            taxAmountInput.val(taxAmount);
+            
+            const afterTaxFundingAmount = +(basicFundingAmountInputValue + taxAmount).toFixed(2);
+            afterTaxFundingAmountInput.val(afterTaxFundingAmount);
+            
+            
+            const interestRatioAmount = +(afterTaxFundingAmount * interestRatioInputValue).toFixed(2);
+            interestRatioAmountInput.val(interestRatioAmount);
+            
+            const afterInterestRatioFundingAmount = +(afterTaxFundingAmount + interestRatioAmount).toFixed(2);
+            afterInterestRatioFundingAmountInput.val(afterInterestRatioFundingAmount);
+            
+            const totalFundingAmount = +(afterInterestRatioFundingAmount + administrativeFeesInputValue).toFixed(2);
+            totalFundingAmountInput.val(totalFundingAmount);
+            
+            const totalInstallmentsAmount = +(totalFundingAmount - advancePaymentInputValue).toFixed(2);
+            totalInstallmentsAmountInput.val(totalInstallmentsAmount);
+            
+            debugger;
+            if (installmentsCountInputValue !== 0) {
+                const installmentAmount = +(totalInstallmentsAmount / installmentsCountInputValue).toFixed(2);
+                installmentAmountInput.val(installmentAmount);
+            }
+            //-----------
+        });
+        
+        
+        
+        
+        // ------------------------------------------------------------------------------------------------------------
+     });
+        
+           
+         
+
+                                
+    </script>
+}

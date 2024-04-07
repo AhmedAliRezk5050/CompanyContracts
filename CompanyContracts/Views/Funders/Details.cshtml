@@ -1,0 +1,44 @@
+﻿@model FunderViewModel
+
+@{
+    ViewData["Title"] = "تفاصيل جهة تمويل";
+}
+
+<div class="row">
+    <div class="col-12">
+        <h3 class="text-center mb-5">تفاصيل جهة تمويل</h3>
+
+        <form>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="form-label" asp-for="Name"></label>
+                    <input class="form-control" asp-for="Name" disabled>
+                </div>
+                <div class="col-6">
+                    <label class="form-label" asp-for="Address"></label>
+                    <input class="form-control" asp-for="Address" disabled>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="form-label" asp-for="PhoneNumber"></label>
+                    <input class="form-control" asp-for="PhoneNumber" disabled>
+                </div>
+                <div class="col-6">
+                    <label class="form-label" asp-for="ContactEmployee"></label>
+                    <input class="form-control" asp-for="ContactEmployee" disabled>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="form-label" asp-for="MainNumber"></label>
+                    <input class="form-control" asp-for="MainNumber" disabled>
+                </div>
+                <div class="col-6">
+                    <label class="form-label" asp-for="SubNumber"></label>
+                    <input class="form-control" asp-for="SubNumber" disabled>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

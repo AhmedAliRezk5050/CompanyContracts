@@ -1,0 +1,79 @@
+﻿@model InstallmentPaymentViewModel
+
+@{
+    ViewData["Title"] = "تفاصيل السداد";
+}
+
+<div class="row">
+    <div class="col-12">
+        <h3 class="text-center mb-5">تفاصيل سداد</h3>
+
+        <form>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="form-label" asp-for="InstallmentNumber"></label>
+                    <input class="form-control" asp-for="InstallmentNumber" disabled>
+                </div>
+                <div class="col-6">
+                    <label class="form-label" asp-for="InstallmentAmount"></label>
+                    <input class="form-control" asp-for="InstallmentAmount" disabled>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="form-label" asp-for="ContractNumber"></label>
+                    <input class="form-control" asp-for="ContractNumber" disabled>
+                </div>
+                <div class="col-6">
+                    <label class="form-label" asp-for="PaymentAmount"></label>
+                    <input class="form-control" asp-for="PaymentAmount" disabled>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="form-label" asp-for="OtherPaymentsAmount"></label>
+                    <input class="form-control" asp-for="OtherPaymentsAmount" disabled>
+                </div>
+                <div class="col-6">
+                    <label class="form-label" asp-for="RemainingPaymentAmount"></label>
+                    <input class="form-control" asp-for="RemainingPaymentAmount" disabled>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="form-label" asp-for="PaymentMethod"></label>
+                    <input class="form-control" asp-for="PaymentMethod" disabled>
+                </div>
+                <div class="col-6">
+                    <label class="form-label" asp-for="PaymentDate"></label>
+                    <input class="form-control" asp-for="PaymentDate" disabled>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="form-label" asp-for="BankRefNumber"></label>
+                    <input class="form-control" asp-for="BankRefNumber" disabled>
+                </div>
+                <div class="col-6">
+                    <label class="form-label" asp-for="TransferredBankAccountNumber"></label>
+                    <input class="form-control" asp-for="TransferredBankAccountNumber" disabled>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="form-label" asp-for="Notes"></label>
+                    <input class="form-control" asp-for="Notes" disabled>
+                </div>
+                <div class="col-6">
+                    <a
+                        class="btn btn-secondary"
+                        asp-action="DownloadBankStatementFile"
+                        asp-controller="Contracts"
+                        asp-route-fileName="@Model.BankStatementFileName">
+                        تحميل مستند البنك
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

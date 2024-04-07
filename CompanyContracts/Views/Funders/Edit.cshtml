@@ -1,0 +1,74 @@
+﻿@model FunderViewModel
+
+@{
+    ViewData["Title"] = "تعديل جهة تمويل";
+}
+
+<div class="row">
+    <div class="col-12">
+        <h3 class="text-center mb-5">تعديل جهة تمويل</h3>
+        <form asp-action="Edit">
+            <input type="hidden" asp-for="Id">
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="form-label" asp-for="Name"></label>
+                    <input class="form-control" asp-for="Name">
+                    <span class="text-danger" asp-validation-for="Name"></span>
+                </div>
+                <div class="col-6">
+                    <label class="form-label" asp-for="Address"></label>
+                    <input class="form-control" asp-for="Address">
+                    <span class="text-danger" asp-validation-for="Address"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="form-label" asp-for="PhoneNumber"></label>
+                    <input class="form-control" asp-for="PhoneNumber">
+                    <span class="text-danger" asp-validation-for="PhoneNumber"></span>
+                </div>
+                <div class="col-6">
+                    <label class="form-label" asp-for="ContactEmployee"></label>
+                    <input class="form-control" asp-for="ContactEmployee">
+                    <span class="text-danger" asp-validation-for="ContactEmployee"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="form-label" asp-for="MainNumber"></label>
+                    <input class="form-control" asp-for="MainNumber">
+                </div>
+                <div class="col-6">
+                    <label class="form-label" asp-for="SubNumber"></label>
+                    <input class="form-control" asp-for="SubNumber">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">تعديل</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial"/>
+    <script>
+        $(document).ready(function () {
+            const fundersEditTempMsg = '@TempData["funders-edit-temp-msg"]';
+                         
+            if (fundersEditTempMsg) {
+                switch (fundersEditTempMsg) {
+                   case 'unknown-error':
+                    Swal.fire({
+                      text: 'خطأ غير معلوم',
+                      icon: 'error',
+                    })
+                    break;                          
+                }
+            }
+        });
+    </script>
+}

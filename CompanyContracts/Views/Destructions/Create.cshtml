@@ -1,0 +1,43 @@
+﻿@model DestructionViewModel
+
+@{
+    ViewData["Title"] = "اضافة اهلاك";
+}
+
+<div class="row">
+    <div class="col-12">
+        <h3 class="text-center mb-5">اضافة اهلاك</h3>
+
+        <form asp-action="Create" id="myForm">
+            <input type="hidden" asp-for="ContractId">
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="form-label" asp-for="ContractNumber"></label>
+                    <input class="form-control" asp-for="ContractNumber" disabled>
+                </div>
+                <div class="col-6">
+                    <label class="form-label" asp-for="Amount"></label>
+                    <input class="form-control" asp-for="Amount">
+                    <span class="text-danger" asp-validation-for="Amount"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="form-label" asp-for="Date"></label>
+                    <input class="form-control" asp-for="Date">
+                    <span class="text-danger" asp-validation-for="Date"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">اضافة</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+}

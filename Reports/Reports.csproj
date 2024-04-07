@@ -1,0 +1,86 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Update="DataSets\contracts.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>contracts.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="DataSets\contractsInfo.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>contractsInfo.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="DataSets\funders.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>funders.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="DataSets\fundersInfo.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>fundersInfo.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="DataSets\installmentPayments.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>installmentPayments.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="DataSets\installmentPaymentsInfo.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>installmentPaymentsInfo.xsd</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="DataSets\contracts.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>contracts.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DataSets\contractsInfo.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>contractsInfo.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DataSets\funders.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>funders.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DataSets\fundersInfo.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>fundersInfo.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DataSets\installmentPayments.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>installmentPayments.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DataSets\installmentPaymentsInfo.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>installmentPaymentsInfo.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Reports\contracts.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Reports\funders.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Reports\installmentPayments.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

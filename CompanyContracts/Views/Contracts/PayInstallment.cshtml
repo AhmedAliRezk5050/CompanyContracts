@@ -1,0 +1,188 @@
+﻿@model InstallmentPaymentViewModel
+
+@{
+    ViewData["Title"] = "تسديد قسط";
+}
+
+<div class="row">
+    <div class="col-12">
+        <h3 class="text-center mb-5">تسديد قسط</h3>
+
+        <form asp-action="PayInstallment" enctype="multipart/form-data" id="myForm">
+            <input type="hidden" asp-for="ContractId">
+
+            <div class="row mb-3">
+                <div class="col-4">
+                    <label class="form-label" asp-for="ContractNumber"></label>
+                    <input class="form-control" asp-for="ContractNumber" disabled>
+                </div>
+                <div class="col-4">
+                    <label class="form-label" asp-for="InstallmentNumber"></label>
+                    <input class="form-control" asp-for="InstallmentNumber" disabled>
+                </div>
+                <div class="col-4">
+                    <label class="form-label" asp-for="InstallmentAmount"></label>
+                    <input class="form-control" asp-for="InstallmentAmount" disabled>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-4">
+                    <label class="form-label" asp-for="RemainingPaymentAmount"></label>
+                    <input class="form-control" asp-for="RemainingPaymentAmount" disabled>
+                </div>
+                <div class="col-4">
+                    <label class="form-label" asp-for="PaymentAmount"></label>
+                    <input class="form-control" asp-for="PaymentAmount">
+                    <span class="text-danger" asp-validation-for="PaymentAmount"></span>
+                </div>
+                <div class="col-4">
+                    <label class="form-label" asp-for="OtherPaymentsAmount"></label>
+                    <input class="form-control" asp-for="OtherPaymentsAmount">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="form-label" asp-for="PaymentMethod"></label>
+                <div class="col-6">
+                    <div class="form-check-inline">
+                        <input class="form-check-input" type="radio" asp-for="PaymentMethod" value="net" id="NetPaymentMethod">
+                        <label class="form-check-label" for="NetPaymentMethod">
+                            شبكة
+                        </label>
+                    </div>
+                    <div class="form-check-inline">
+                        <input class="form-check-input" type="radio" asp-for="PaymentMethod" value="bank" id="BankPaymentMethod">
+                        <label class="form-check-label" for="BankPaymentMethod">
+                            تحويل
+                        </label>
+                    </div>
+                    <span class="text-danger" asp-validation-for="PaymentMethod"></span>
+                </div>
+                <div class="col-6">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="true" id="forcePayCheck" name="HasForcePay">
+                        <label class="form-check-label" for="forcePayCheck">
+                            دفع مختلف
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="form-label" asp-for="BankRefNumber"></label>
+                    <input class="form-control" asp-for="BankRefNumber">
+                </div>
+                <div class="col-6">
+                    <label class="form-label" asp-for="TransferredBankAccountNumber"></label>
+                    <input class="form-control" asp-for="TransferredBankAccountNumber">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="form-label" asp-for="PaymentDate"></label>
+                    <input class="form-control" asp-for="PaymentDate">
+                    <span class="text-danger" asp-validation-for="PaymentDate"></span>
+                </div>
+                <div class="col-6">
+                    <label class="form-label" asp-for="BankStatementFile"></label>
+                    <input class="form-control" asp-for="BankStatementFile" accept=".pdf,.jpg,.jpeg,.png">
+                    <span class="text-danger" asp-validation-for="BankStatementFile"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="form-label" asp-for="Notes"></label>
+                    <textarea class="form-control" asp-for="Notes"></textarea>
+                    <span class="text-danger" asp-validation-for="Notes"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">تسديد</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial"/>
+    <script>
+        $(document).ready(function () {
+            // ------------------------------------------------------------------------
+            document.querySelector('form').addEventListener('submit', function () {
+            document.querySelector('input[name="ContractNumber"]').disabled = false;
+            document.querySelector('input[name="InstallmentNumber"]').disabled = false;
+            document.querySelector('input[name="InstallmentAmount"]').disabled = false;
+            document.querySelector('input[name="RemainingPaymentAmount"]').disabled = false;
+                });
+            // ------------------------------------------------------------------------
+            
+            // ------------------------------------------------------------------------
+            const installmentAmountInput = $('#InstallmentAmount');
+            const paymentAmountInput = $('#PaymentAmount');
+            const otherPaymentsAmountInput = $('#OtherPaymentsAmount');
+            const remainingPaymentAmountInput = $('#RemainingPaymentAmount');
+            
+            // $('#PaymentAmount, #OtherPaymentsAmount').on('input', function () {
+            //     debugger
+            //     const installmentAmountValue = +installmentAmountInput.val();
+            //     const paymentAmountValue = +paymentAmountInput.val();
+            //     const otherPaymentsAmountValue = +otherPaymentsAmountInput.val();
+            //    
+            //     const newRemainingPaymentAmountValue =  +(installmentAmountValue - (paymentAmountValue + otherPaymentsAmountValue)).toFixed(2)
+            //   
+            //    if (newRemainingPaymentAmountValue >=0) {
+            //        remainingPaymentAmountInput.val(newRemainingPaymentAmountValue);
+            //    } else {
+            //        paymentAmountInput.val(0)
+            //        otherPaymentsAmountInput.val(0)
+            //        remainingPaymentAmountInput.val(0)
+            //        Swal.fire({
+            //                   text: 'المبلغ المتبقي غير صحيح',
+            //                   icon: 'error',
+            //                   })
+            //    }
+            //   
+            //    
+            // });
+            
+            // ------------------------------------------------------------------------
+            
+         const payInstallmentTempMsg = '@TempData["pay-installment-temp-msg"]';
+         if (payInstallmentTempMsg) {
+             switch (payInstallmentTempMsg) {
+                case 'pay-fail':
+                   Swal.fire({
+                         text: 'فشل السداد',
+                          icon: 'error',
+                             })
+                break; 
+                case 'unknown-error':
+                   Swal.fire({
+                         text: 'خطأ غير معلوم',
+                          icon: 'error',
+                             })
+                break;                          
+                        }
+                          }  
+         
+         
+         $('#myForm').on('submit', function () {
+          // Enable the disabled input field before submitting the form
+          $('#ContractNumber').prop('disabled', false);
+          $('#InstallmentNumber').prop('disabled', false);
+          $('#InstallmentAmount').prop('disabled', false);
+          $('#RemainingPaymentAmount').prop('disabled', false);
+      });
+         
+         // ------------------------------------------------------------------------
+        });
+    </script>
+}

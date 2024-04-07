@@ -1,0 +1,50 @@
+﻿@model EditInstallmentPaymentViewModel
+
+@{
+    ViewData["Title"] = "تعديل عملية سداد عقد";
+}
+
+<div class="row">
+    <div class="col-12">
+        <h3 class="text-center mb-5">تعديل عملية سداد عقد</h3>
+
+        <form asp-action="EditInstallmentPayment">
+            <input type="hidden" asp-for="Id">
+
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="form-label" asp-for="PaymentDate"></label>
+                    <input class="form-control" asp-for="PaymentDate">
+                    <span class="text-danger" asp-validation-for="PaymentDate"></span>
+                </div>
+                <div class="col-6">
+                    <label class="form-label" asp-for="BankRefNumber"></label>
+                    <input class="form-control" asp-for="BankRefNumber">
+                    <span class="text-danger" asp-validation-for="BankRefNumber"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="form-label" asp-for="TransferredBankAccountNumber"></label>
+                    <input class="form-control" asp-for="TransferredBankAccountNumber">
+                    <span class="text-danger" asp-validation-for="TransferredBankAccountNumber"></span>
+                </div>
+                <div class="col-6">
+                    <label class="form-label" asp-for="Notes"></label>
+                    <input class="form-control" asp-for="Notes">
+                    <span class="text-danger" asp-validation-for="Notes"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">تعديل</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+}

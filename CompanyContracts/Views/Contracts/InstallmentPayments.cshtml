@@ -1,0 +1,125 @@
+﻿@using Infrastructure.Utility
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model IEnumerable<InstallmentPaymentViewModel>
+
+@{
+    ViewData["Title"] = "عمليات السداد";
+}
+
+<div class="row">
+    <div class="col-12">
+        <h3 class="text-center mb-5">
+            <span>عمليات السداد لعقد رقم</span>
+            <span>@ViewBag.ContractNumber</span>
+        </h3>
+        <div class="table-responsive ">
+            <table class="table table-striped table-bordered table-hover text-center">
+                <thead>
+                <tr>
+                    <th>م</th>
+                    <th>تاريخ السداد</th>
+                    <th>طريقة السداد</th>
+                    <th>رقم المرجع البنكي</th>
+                    <th>رقم الحساب البنكي المحول منه</th>
+                    <th>رقم القسط</th>
+                    <th>قيمة القسط</th>
+                    <th>المبلغ المسدد</th>
+                    <th>مبلغ تعويضات حادث</th>
+                    <th>الباقي</th>
+                    <th style="min-width: 300px;">ايضاحات</th>
+                    <th>اسم المستخدم</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                @{
+                    var counter = 0;
+                }
+                @foreach (var p in Model)
+                {
+                    counter++;
+                    <tr>
+                        <td>@counter</td>
+                        <td>
+                            <div>@p.PaymentDate.Value.ToString("dd/MM/yyy")</div>
+                            <div>@p.PaymentDate.Value.ToString("HH:mm:ss")</div>
+                        </td>
+                        <td>@p.PaymentMethod</td>
+                        <td>@p.BankRefNumber</td>
+                        <td>@p.TransferredBankAccountNumber</td>
+                        <td>@p.InstallmentNumber</td>
+                        <td>@p.InstallmentAmount</td>
+
+                        <td>@p.PaymentAmount</td>
+                        <td>@p.OtherPaymentsAmount</td>
+                        <td>@p.RemainingPaymentAmount</td>
+                        <td>@p.Notes</td>
+                        <td>@p.UserName</td>
+                        <td>
+                            <a class="btn btn-secondary text-white" asp-action="InstallmentPayment" asp-route-id="@p.Id">
+                                <i class="bi bi-card-list"></i>
+                            </a>
+                        </td>
+                        <td>
+                            @if (User.HasClaim("Permission", Permissions.InstallmentPayments.Edit))
+                            {
+                                <a class="btn btn-warning text-white"
+                                   asp-action="EditInstallmentPayment"
+                                   asp-route-id="@p.Id"
+                                   title="تعديل">
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
+                            }
+                        </td>
+                        @* <td> *@
+                        @*     <a class="btn btn-danger text-white" *@
+                        @*        id="deleteInstallmentPaymentBtn" *@
+                        @*    asp-action="DeleteInstallmentPayment" *@
+                        @*    asp-route-id="@p.Id" *@
+                        @*        title="حذف"> *@
+                        @*         <i class="bi bi-trash"></i> *@
+                        @*     </a> *@
+                        @* </td> *@
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            const installmentPaymentsTempMsg = '@TempData["installment-payments-temp-msg"]';
+            if (installmentPaymentsTempMsg) {
+                switch (installmentPaymentsTempMsg) {
+                   case 'edit-error':
+                       Swal.fire({
+                             text: 'فشل التعديل',
+                              icon: 'error',
+                                 })
+                    break;
+                    case 'unknown-error':
+                       Swal.fire({
+                             text: 'خطأ غير معلوم',
+                              icon: 'error',
+                                 })
+                    break;
+            }
+              }
+            
+            //------------------------------------------
+            $('#deleteInstallmentPaymentBtn').on('click', function (e) {
+                debugger;
+                const result = confirm("هل انت متاكد من حذف العملية؟");
+                if (!result) {
+                    e.preventDefault();
+                }
+            });
+            //------------------------------------------
+        });
+    </script>
+}
